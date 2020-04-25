@@ -4,6 +4,7 @@ import { Link, Switch, Route } from 'react-router-dom';
 
 import ToDoListPage from '../Pages/ToDoListPage/Loadable';
 import HomePage from '../Pages/HomePage/Loadable';
+import GlobalStyle from '../global-styles';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/alternate" component={ToDoListPage} exact />
         </Switch>
       </div>
+      <GlobalStyle />
     </>
   );
 }
