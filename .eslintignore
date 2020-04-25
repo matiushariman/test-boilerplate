@@ -1,6 +1,7 @@
-serviceWorker.js
-setupTests.js
+build/
 node_modules/
 config/
 public/
 scripts/
+setupTests.js
+serviceworker.js
