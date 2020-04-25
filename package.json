@@ -77,6 +77,16 @@
       "jest-watch-typeahead/testname"
     ]
   },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "git add --force"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add --force"
+    ]
+  },
   "babel": {
     "presets": [
       "react-app"
