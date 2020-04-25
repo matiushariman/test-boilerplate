@@ -1,0 +1,6 @@
+serviceWorker.js
+setupTests.js
+node_modules/
+config/
+public/
+scripts/
