@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import 'sanitize.css';
 
@@ -9,15 +10,17 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore, { history } from './configureStore';
 
-const store = configureStore({});
+const { store, persistor } = configureStore({});
 
 render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </ConnectedRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <ConnectedRouter history={history}>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </ConnectedRouter>
+    </PersistGate>
   </Provider>,
   document.getElementById('root'),
 );

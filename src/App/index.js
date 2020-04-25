@@ -2,7 +2,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import { Link, Switch, Route } from 'react-router-dom';
 
-import AlternatePage from '../Pages/AlternatePage/Loadable';
+import ToDoListPage from '../Pages/ToDoListPage/Loadable';
 import HomePage from '../Pages/HomePage/Loadable';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <div>
         <Switch>
           <Route path="/" component={HomePage} exact />
-          <Route path="/alternate" component={AlternatePage} exact />
+          <Route path="/alternate" component={ToDoListPage} exact />
         </Switch>
       </div>
     </>
