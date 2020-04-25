@@ -1,7 +1,20 @@
-import { createReducer, configureStore } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { createBrowserHistory } from 'history';
+import { routerMiddleware } from 'connected-react-router';
+import createRootReducer from './reducers';
 
-const counter = createReducer(0, {});
+export const history = createBrowserHistory();
 
-export const store = configureStore({ reducer: { counter } });
+export default function configureAppStore(preloadedState) {
+  const store = configureStore({
+    reducer: createRootReducer(history),
+    middleware: [routerMiddleware(history), ...getDefaultMiddleware()],
+    preloadedState,
+  });
 
-export default configureStore;
+  if (process.env.NODE_ENV !== 'production' && module.hot) {
+    module.hot.accept('./reducers', () => store.replaceReducer(createRootReducer(history)));
+  }
+
+  return store;
+}

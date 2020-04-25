@@ -1,18 +1,23 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 
 import 'sanitize.css';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { store } from './configureStore';
+import configureStore, { history } from './configureStore';
+
+const store = configureStore({});
 
 render(
   <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <ConnectedRouter history={history}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),
 );
