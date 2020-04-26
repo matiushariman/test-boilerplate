@@ -2,9 +2,9 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import { Link, Switch, Route } from 'react-router-dom';
 
-import ToDoListPage from '../Pages/ToDoListPage/Loadable';
-import HomePage from '../Pages/HomePage/Loadable';
-import GlobalStyle from '../global-styles';
+import ToDoListPage from 'Pages/ToDoListPage/Loadable';
+import HomePage from 'Pages/HomePage';
+import GlobalStyle from 'global-styles';
 
 function App() {
   return (
