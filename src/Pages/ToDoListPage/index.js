@@ -21,6 +21,8 @@ export function ToDoListPage() {
       )}
       <div>
         <input
+          name="toDo"
+          type="text"
           value={newTodo}
           onChange={(e) => {
             setNewTodo(e.target.value);
