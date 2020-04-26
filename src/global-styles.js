@@ -13,6 +13,11 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
 	  -moz-osx-font-smoothing: grayscale;
   }
+
+  #root {
+    background-color: #B3E5FC;
+    min-height: 100%;
+  }
 `;
 
 export default GlobalStyle;
