@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
@@ -29,4 +28,4 @@ function App() {
   );
 }
 
-export default hot(module)(App);
+export default App;
