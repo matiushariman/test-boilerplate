@@ -1,7 +1,16 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware } from 'connected-react-router';
-import { persistStore, persistReducer } from 'redux-persist';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 import storage from 'redux-persist/lib/storage/session';
 import createSagaMiddleware from 'redux-saga';
 
@@ -17,10 +26,11 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, createRootReducer(history));
+const PERSIST_ACTIONS = [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER];
 
 const sagaMiddleware = createSagaMiddleware();
 const middleware = [
-  ...getDefaultMiddleware({ thunk: false }),
+  ...getDefaultMiddleware({ thunk: false, serializableCheck: { ignoredActions: PERSIST_ACTIONS } }),
   sagaMiddleware,
   routerMiddleware(history),
 ];
